@@ -13,10 +13,10 @@ The goals / steps of this project are the following:
 #### 1. Describe your pipeline. As part of the description, explain how you modified the draw_lines() function.
 
 My pipeline consisted of 5 steps.
-* Step 1, Use color select to remove all pixels that are below [200,200,200]
+* Step 1, Use color select to remove all pixels that are below [180,180,180]
 * Step 2, Convert the image to grayscale.
 * Step 3, Run gaussian blur on the grayscale image with kernel_size=3.
-* Step 4, Run canny edge detector on the blured image. Parameter: low_threshold = 50, high_threshold = 100
+* Step 4, Run canny edge detector on the blured image. Parameter: low_threshold = 40, high_threshold = 80
 * Step 5, Remove all edges outside of our region of interest. I defined the ROI as a trapezoid bounded by [460,310],[500,310],[959,539],[0,539].
 * Step 6, Run Hough Transform to detect line segments. Parameters: rho = 1, theta = 1 degree, threshold = 10, min_line_len = 10, max_line_gap = 15
 * Step 7, Use draw_lines() described below to mark the single line for left and right edge.
@@ -40,3 +40,5 @@ Another shortcoming could be that the detection is only based on a single image 
 A possible improvement would be to do temporal filtering to smoothen the detection.
 
 Another potential improvement could be to prepare several sets of parameters and during runtime determine which one set is the best performing one.
+
+Lastly, the RANSAC algorithm should still improve the robustness of the detection, but I didn't have time to finish a more polished version.
